@@ -1,0 +1,6 @@
+{
+  "name": "clearat",
+  "private": true,
+  "type": "module",
+  "description": "Browser extension: one badge for Bluesky notifications, RSS, and YouTube."
+}

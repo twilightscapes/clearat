@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Clear AT",
+  "version": "0.1.0",
+  "description": "One badge for everything: Bluesky notifications across your accounts, plus RSS and YouTube. Triage at a glance, act on the source site.",
+  "permissions": ["storage", "alarms"],
+  "host_permissions": ["https://*/*", "http://*/*"],
+  "background": {
+    "service_worker": "src/background.js",
+    "scripts": ["src/background.js"],
+    "type": "module"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "extension@clearat.app",
+      "strict_min_version": "121.0"
+    }
+  },
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_title": "Clear AT",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
