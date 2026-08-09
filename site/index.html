@@ -28,6 +28,7 @@
 
     .stores { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
     a.store {
+      position: relative;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -41,8 +42,21 @@
     }
     a.store strong { font-size: 16px; }
     a.store span { font-size: 12.5px; opacity: 0.75; }
-    a.store.soon { background: transparent; color: #FBDFB5; border: 1.5px solid rgba(251, 223, 181, 0.5); }
     a.store:hover { opacity: 0.85; }
+    .badge-soon {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #d43a3a;
+      color: #fff;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 3px 9px;
+      border-radius: 999px;
+      border: 2.5px solid #04202C;
+      opacity: 1 !important;
+    }
 
     .shots { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
     .shots img {
@@ -99,9 +113,9 @@
       <p class="blurb">One badge for all your notifications — every Bluesky account you run,
         plus RSS and YouTube. Triage at a glance, act on the site it came from.</p>
       <div class="stores">
-        <a class="store" href="#" title="Chrome Web Store — link goes live after review"><strong>Chrome</strong><span>+ Brave &amp; Edge</span></a>
-        <a class="store" href="#" title="Firefox Add-ons — link goes live after review"><strong>Firefox</strong><span>Add-on</span></a>
-        <a class="store soon" href="#" title="Coming soon"><strong>Safari</strong><span>iPhone · iPad · Mac — soon</span></a>
+        <a class="store" href="#" title="Chrome Web Store — link goes live after review"><span class="badge-soon">Soon</span><strong>Chrome</strong><span>+ Brave &amp; Edge</span></a>
+        <a class="store" href="#" title="Firefox Add-ons — link goes live after review"><span class="badge-soon">Soon</span><strong>Firefox</strong><span>Add-on</span></a>
+        <a class="store" href="#" title="Coming soon"><span class="badge-soon">Soon</span><strong>Safari</strong><span>iPhone · iPad · Mac</span></a>
       </div>
       <div class="stores">
         <a class="store" href="app/"><strong>Web app</strong><span>runs in its own window</span></a>
