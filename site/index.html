@@ -4,30 +4,78 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Clear AT — clear your @s</title>
-  <meta name="description" content="One badge for all your notifications — every Bluesky account, plus RSS and YouTube. Triage at a glance.">
+  <meta name="description" content="One badge for all your notifications — every Bluesky account, plus RSS and YouTube. Triage at a glance, act on the site it came from. Free.">
   <link rel="icon" href="logo.png">
+  <meta property="og:site_name" content="Clear AT">
+  <meta property="og:title" content="Clear AT — clear your @s">
+  <meta property="og:description" content="One badge for all your notifications — every Bluesky account, plus RSS and YouTube. Free.">
+  <meta property="og:image" content="https://clearat.app/shots/triage.png">
+  <meta name="twitter:card" content="summary_large_image">
   <style>
     * { box-sizing: border-box; margin: 0; }
     body {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 28px;
       background: #04202C;
       color: #FBDFB5;
       font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       text-align: center;
-      padding: 48px 24px;
     }
-    img.logo { width: min(300px, 70vw); }
+    section { padding: 56px 24px; }
+    .inner { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 24px; }
+
+    img.logo { width: min(280px, 65vw); }
     p.tag { font-size: 15px; letter-spacing: 0.02em; opacity: 0.85; }
-    p.blurb { max-width: 480px; opacity: 0.95; }
-    nav { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    p.blurb { max-width: 520px; opacity: 0.95; }
+
+    .stores { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    a.store {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1px;
+      min-width: 150px;
+      padding: 12px 20px;
+      background: #FBDFB5;
+      color: #04202C;
+      border-radius: 12px;
+      text-decoration: none;
+    }
+    a.store strong { font-size: 16px; }
+    a.store span { font-size: 12.5px; opacity: 0.75; }
+    a.store.soon { background: transparent; color: #FBDFB5; border: 1.5px solid rgba(251, 223, 181, 0.5); }
+    a.store:hover { opacity: 0.85; }
+
+    .shots { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
+    .shots img {
+      width: min(360px, 88vw);
+      border-radius: 16px;
+      border: 1px solid rgba(251, 223, 181, 0.25);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+    }
+
+    h2 { font-size: 26px; font-weight: 700; }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+      width: 100%;
+      text-align: left;
+    }
+    .card {
+      background: rgba(251, 223, 181, 0.07);
+      border: 1px solid rgba(251, 223, 181, 0.18);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+    .card h3 { font-size: 16px; margin-bottom: 6px; }
+    .card p { font-size: 14.5px; opacity: 0.85; }
+
+    .privacy-strip { background: rgba(251, 223, 181, 0.06); }
+    .privacy-strip p { max-width: 560px; font-size: 15px; opacity: 0.9; }
+    .privacy-strip a { color: inherit; }
+
     a.btn {
       display: inline-block;
-      padding: 10px 22px;
+      padding: 11px 26px;
       border: 1.5px solid #FBDFB5;
       border-radius: 10px;
       color: #FBDFB5;
@@ -37,21 +85,88 @@
     }
     a.btn.solid { background: #FBDFB5; color: #04202C; }
     a.btn:hover { opacity: 0.85; }
-    footer { font-size: 13px; opacity: 0.6; }
+
+    footer { padding: 28px 24px 44px; font-size: 13px; opacity: 0.6; }
     footer a { color: inherit; }
   </style>
 </head>
 <body>
-  <img class="logo" src="logo.png" alt="Clear AT">
-  <p class="tag">clear your @s</p>
-  <p class="blurb">One badge for all your notifications — every Bluesky account you run,
-    plus RSS and YouTube. Triage at a glance, act on the site it came from.
-    Free, no account, nothing hosted: your credentials never leave your browser.</p>
-  <nav>
-    <a class="btn solid" href="#" title="Coming soon">Chrome</a>
-    <a class="btn solid" href="#" title="Coming soon">Firefox</a>
-    <a class="btn" href="donate/">Chip in</a>
-  </nav>
-  <footer><a href="privacy/">Privacy</a> · A tool by Todd</footer>
+
+  <section>
+    <div class="inner">
+      <img class="logo" src="logo.png" alt="Clear AT">
+      <p class="tag">clear your @s</p>
+      <p class="blurb">One badge for all your notifications — every Bluesky account you run,
+        plus RSS and YouTube. Triage at a glance, act on the site it came from.</p>
+      <div class="stores">
+        <a class="store" href="#" title="Chrome Web Store — link goes live after review"><strong>Chrome</strong><span>+ Brave &amp; Edge</span></a>
+        <a class="store" href="#" title="Firefox Add-ons — link goes live after review"><strong>Firefox</strong><span>Add-on</span></a>
+        <a class="store soon" href="#" title="Coming soon"><strong>App Store</strong><span>iPhone · iPad · Mac — soon</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner">
+      <div class="shots">
+        <img src="shots/triage.png" alt="The Clear AT popup: three Bluesky accounts listed with unread badges, one expanded showing grouped notifications with avatars — quotes, follows, mentions, and likes — plus a Mark all seen button.">
+        <img src="shots/settings.png" alt="Clear AT settings: Bluesky accounts with remove buttons, fields to add an account with an app password, and a gentle note suggesting a donation for people running more than three accounts.">
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner">
+      <h2>Every account. One glance.</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>One badge, all your @s</h3>
+          <p>The toolbar badge totals unread across every Bluesky account you add — no logging in and out, no pile of tabs.</p>
+        </div>
+        <div class="card">
+          <h3>Triage, not another timeline</h3>
+          <p>Replies and mentions show their text. Likes group up — "Dame + 3 others liked" — with the post they're about. Seven notifications read like three decisions.</p>
+        </div>
+        <div class="card">
+          <h3>One click to the source</h3>
+          <p>Every row opens on the site it came from — reply, follow back, or watch, right where it happened.</p>
+        </div>
+        <div class="card">
+          <h3>Seen here is seen everywhere</h3>
+          <p>"Mark all seen" syncs with Bluesky itself, so the badge clears in the official apps too.</p>
+        </div>
+        <div class="card">
+          <h3>RSS and YouTube ride along</h3>
+          <p>Your feeds and channel subscriptions get their own rows in the same badge. Paste a YouTube channel URL — done.</p>
+        </div>
+        <div class="card">
+          <h3>Noise control</h3>
+          <p>Filter out the notification types you don't care about. Likes off, mentions on — your call.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="privacy-strip">
+    <div class="inner">
+      <h2>No server. No account. No tracking.</h2>
+      <p>Clear AT has no backend — your app passwords stay in your browser and talk
+        only to your own accounts' servers. Nothing is collected, because there is
+        nowhere to collect it. <a href="privacy/">Read the privacy policy</a>.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="inner">
+      <h2>Free. Every account, every feed.</h2>
+      <p class="blurb">If Clear AT saves you a scroll every day, chip in whatever feels right.</p>
+      <a class="btn solid" href="donate/">Chip in</a>
+    </div>
+  </section>
+
+  <footer>
+    <a href="privacy/">Privacy</a> · <a href="donate/">Chip in</a> · A tool by Todd
+  </footer>
+
 </body>
 </html>
