@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chip in — Clear AT</title>
+  <link rel="icon" href="../logo.png">
+  <script async src="https://js.stripe.com/v3/buy-button.js"></script>
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      background: #04202C;
+      color: #FBDFB5;
+      font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      text-align: center;
+      padding: 48px 24px;
+    }
+    a.home img { width: min(200px, 55vw); }
+    p.blurb { max-width: 440px; opacity: 0.95; }
+    .stripe-wrap { background: #FBDFB5; border-radius: 14px; padding: 20px 24px; }
+    p.thanks { font-size: 14px; opacity: 0.75; max-width: 440px; }
+    footer { font-size: 13px; opacity: 0.6; }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <a class="home" href="../"><img src="../logo.png" alt="Clear AT"></a>
+  <p class="blurb">Clear AT is free — every account, every feed, forever.
+    If it saves you a scroll every day, chip in whatever feels right.</p>
+  <div class="stripe-wrap">
+    <stripe-buy-button
+      buy-button-id="buy_btn_1U2dxFIbXHwBH2q3ieBsvbJr"
+      publishable-key="pk_live_51Qe75VIbXHwBH2q3ch45KOPmWw0kD68QGp3dsYs3443glOaqh5XHJ99r5i4TOD7LXS7Sy2uUR5OrNvOxxRvd3uhc00Iln4w7KF">
+    </stripe-buy-button>
+  </div>
+  <p class="thanks">After you've chipped in, open the extension's settings and tap
+    “I chipped in” — the nudge disappears forever, on all your machines.</p>
+  <footer><a href="../">clearat.app</a></footer>
+</body>
+</html>

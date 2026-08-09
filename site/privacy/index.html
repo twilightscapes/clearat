@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy — Clear AT</title>
+  <link rel="icon" href="../logo.png">
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      background: #04202C;
+      color: #FBDFB5;
+      font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 48px 24px;
+    }
+    main { max-width: 620px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+    h1 { font-size: 24px; }
+    a { color: inherit; }
+    footer { margin-top: 16px; font-size: 13px; opacity: 0.6; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Clear AT privacy policy</h1>
+    <p><strong>Clear AT collects no data. There is no server.</strong></p>
+    <p>Your Bluesky app passwords and session tokens are stored in your
+      browser's local extension storage, on your machine only. They are sent
+      exclusively to the Bluesky/AT&nbsp;Protocol servers that host your own
+      accounts, to fetch your notifications — never to us, never to anyone
+      else. We couldn't read them if we wanted to; there is nothing on our
+      end to receive them.</p>
+    <p>Your feed list, notification filters, and read/unread state are stored
+      in your browser's extension sync storage, which your browser (Google or
+      Mozilla, per their policies) syncs between your own devices.</p>
+    <p>The extension contacts only: the AT&nbsp;Protocol servers for accounts
+      you add, the public Bluesky AppView (to resolve handles, post text, and
+      avatars), and the RSS/YouTube feed URLs you add yourself. No analytics,
+      no telemetry, no tracking of any kind.</p>
+    <p>Donations are processed by Stripe on clearat.app; the extension itself
+      never handles payment and doesn't know whether you've donated beyond a
+      flag you set yourself.</p>
+    <footer>Last updated August 2026 · <a href="../">clearat.app</a></footer>
+  </main>
+</body>
+</html>

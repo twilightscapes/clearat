@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clear AT — clear your @s</title>
+  <meta name="description" content="One badge for all your notifications — every Bluesky account, plus RSS and YouTube. Triage at a glance.">
+  <link rel="icon" href="logo.png">
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      background: #04202C;
+      color: #FBDFB5;
+      font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      text-align: center;
+      padding: 48px 24px;
+    }
+    img.logo { width: min(300px, 70vw); }
+    p.tag { font-size: 15px; letter-spacing: 0.02em; opacity: 0.85; }
+    p.blurb { max-width: 480px; opacity: 0.95; }
+    nav { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    a.btn {
+      display: inline-block;
+      padding: 10px 22px;
+      border: 1.5px solid #FBDFB5;
+      border-radius: 10px;
+      color: #FBDFB5;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    a.btn.solid { background: #FBDFB5; color: #04202C; }
+    a.btn:hover { opacity: 0.85; }
+    footer { font-size: 13px; opacity: 0.6; }
+    footer a { color: inherit; }
+  </style>
+</head>
+<body>
+  <img class="logo" src="logo.png" alt="Clear AT">
+  <p class="tag">clear your @s</p>
+  <p class="blurb">One badge for all your notifications — every Bluesky account you run,
+    plus RSS and YouTube. Triage at a glance, act on the site it came from.
+    Free, no account, nothing hosted: your credentials never leave your browser.</p>
+  <nav>
+    <a class="btn solid" href="#" title="Coming soon">Chrome</a>
+    <a class="btn solid" href="#" title="Coming soon">Firefox</a>
+    <a class="btn" href="donate/">Chip in</a>
+  </nav>
+  <footer><a href="privacy/">Privacy</a> · A tool by Todd</footer>
+</body>
+</html>
