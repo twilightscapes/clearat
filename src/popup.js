@@ -1,4 +1,5 @@
 import { installDemoShimIfNeeded } from './demo.js';
+import { installWebShimIfNeeded } from './web.js';
 import { login, updateSeen, atUriToWebUrl } from './api.js';
 import { resolveFeedUrl, isYouTube } from './feeds.js';
 import {
@@ -13,7 +14,11 @@ import {
 import { icon, REASON_ICON } from './icons.js';
 import { ACCOUNT_NUDGE_THRESHOLD, DONATE_URL, isSupporter, markSupporter } from './license.js';
 
-const DEMO = installDemoShimIfNeeded();
+// Outside the extension: ?demo=1 loads sample data, otherwise the web-app
+// shell (localStorage + in-page polling) takes over. Inside the extension
+// both are inert.
+const DEMO = new URLSearchParams(location.search).has('demo') && installDemoShimIfNeeded();
+const WEB = !DEMO && installWebShimIfNeeded();
 
 const $app = document.getElementById('app');
 let state = null;
@@ -27,6 +32,8 @@ const KIND_META = {
   youtube: { label: 'YouTube channels', icon: 'youtube', cls: 'yt' },
   rss: { label: 'RSS feeds', icon: 'rss', cls: 'rss' },
 };
+
+window.addEventListener('clearat:polled', () => reload());
 
 init();
 
@@ -104,7 +111,12 @@ function mainHtml() {
   const subs = ['youtube', 'rss'].map(subRow).join('');
   if (subs) html += `<div class="section-label">Subscriptions</div>${subs}`;
 
-  html += `<div class="foot">${DEMO ? 'Demo mode — sample data' : 'Checks every 3 minutes'}</div>`;
+  const footNote = DEMO
+    ? 'Demo mode — sample data'
+    : WEB
+      ? 'Web app — checks every 3 minutes while open'
+      : 'Checks every 3 minutes';
+  html += `<div class="foot">${footNote}</div>`;
   return html;
 }
 
@@ -227,6 +239,7 @@ function settingsHtml() {
       <div class="form">
         <input type="url" id="feed-url" placeholder="https://example.com/feed.xml" autocomplete="off" spellcheck="false">
         <div class="hint">Any RSS/Atom URL. For YouTube, paste a channel page URL — it resolves to the upload feed.</div>
+        ${WEB ? '<div class="hint">Heads up: many feeds block fetching from web pages (CORS) — the browser extension fetches them all.</div>' : ''}
         <div class="err" id="feed-err"></div>
         <button class="primary" data-act="add-feed">Add feed</button>
       </div>

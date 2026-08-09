@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clear AT</title>
+  <meta name="description" content="Triage your Bluesky notifications across every account — in the browser or as an installed app.">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#04202C">
+  <link rel="icon" href="/icon-192.png">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <link rel="stylesheet" href="src/popup.css">
+</head>
+<body>
+  <div id="app"></div>
+  <script type="module" src="src/popup.js"></script>
+  <script>
+    if ('serviceWorker' in navigator && location.protocol === 'https:') {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
+</body>
+</html>

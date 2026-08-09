@@ -1,0 +1,5 @@
+# Publish the static site; the "build" just copies the extension's source in
+# as the web app (site/app/index.html is the committed wrapper around it).
+[build]
+  publish = "site"
+  command = "mkdir -p site/app/src && cp -R src/. site/app/src/"
