@@ -59,3 +59,9 @@ body.state-off :is(.state-on, .state-unknown) {
 button {
     font-size: 1em;
 }
+
+.hint {
+    font-size: 0.85em;
+    opacity: 0.65;
+    max-width: 34em;
+}

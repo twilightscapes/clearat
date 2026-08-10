@@ -24,6 +24,7 @@ const $app = document.getElementById('app');
 let state = null;
 let view = 'main';
 let needsHosts = false;
+let hostsHelp = false; // Safari: permissions.request can't grant host access, show manual steps
 let supporter = false;
 const expanded = new Set();
 const groupReg = new Map();
@@ -61,6 +62,10 @@ async function reload() {
 // Chrome grants host_permissions at install; Firefox MV3 treats them as
 // opt-in, so we ask with a one-click banner (never shown in Chrome).
 async function missingHostAccess() {
+  // Safari can't grant host access from the popup — users do it in Safari's
+  // Extensions settings (which they visit to enable the extension anyway),
+  // so a banner here would only be a dead end
+  if (location.protocol === 'safari-web-extension:') return false;
   if (!chrome.permissions?.contains) return false;
   try {
     return !(await chrome.permissions.contains({ origins: ['https://*/*', 'http://*/*'] }));
@@ -90,7 +95,12 @@ function mainHtml() {
     </div>`;
 
   if (needsHosts) {
-    html += `
+    html += hostsHelp
+      ? `
+      <div class="banner">
+        <span>Safari only grants site access from its own settings: open <b>Safari&nbsp;→ Settings&nbsp;→ Extensions&nbsp;→ Clear&nbsp;AT</b> and choose <b>“Always Allow on Every Website.”</b> Then reopen this popup.</span>
+      </div>`
+      : `
       <div class="banner">
         <span>To poll your accounts and feeds, site access is needed.</span>
         <button class="primary" data-act="grant-hosts">Grant site access</button>
@@ -398,11 +408,18 @@ async function handle(el) {
     case 'read-item': await markItemRead(el.dataset.url, el.dataset.iid); break;
     case 'read-kind': await markKindRead(el.dataset.kind); break;
     case 'grant-hosts': {
-      const granted = await chrome.permissions.request({ origins: ['https://*/*', 'http://*/*'] });
+      let granted = false;
+      try {
+        granted = await chrome.permissions.request({ origins: ['https://*/*', 'http://*/*'] });
+      } catch { /* Safari rejects programmatic host grants */ }
       if (granted) {
         needsHosts = false;
+        hostsHelp = false;
         try { await chrome.runtime.sendMessage({ type: 'poll' }); } catch { /* demo */ }
         await reload();
+      } else {
+        hostsHelp = true;
+        render();
       }
       break;
     }
