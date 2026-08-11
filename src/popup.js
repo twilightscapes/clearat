@@ -25,6 +25,10 @@ let state = null;
 let view = 'main';
 let needsHosts = false;
 let hostsHelp = false; // Safari: permissions.request can't grant host access, show manual steps
+
+// True when running inside the iOS app shell (it tags its web view's UA);
+// used to show a one-time reminder to enable the Safari extension
+const IN_APP_SHELL = navigator.userAgent.includes('ClearATApp');
 let supporter = false;
 const expanded = new Set();
 const groupReg = new Map();
@@ -93,6 +97,14 @@ function mainHtml() {
       <button class="iconbtn" data-act="refresh" title="Check now">${icon('refresh', 16)}</button>
       <button class="iconbtn" data-act="open-settings" title="Settings">${icon('gear', 16)}</button>
     </div>`;
+
+  if (IN_APP_SHELL && !localStorage.getItem('clearat_ext_hint_done')) {
+    html += `
+      <div class="banner">
+        <span>Don’t forget the Safari extension: turn it on in <b>Settings → Apps → Safari → Extensions</b>, and allow it for <b>All Websites</b>.</span>
+        <button class="primary" data-act="dismiss-ext-hint">Got it</button>
+      </div>`;
+  }
 
   if (needsHosts) {
     html += hostsHelp
@@ -421,6 +433,11 @@ async function handle(el) {
         hostsHelp = true;
         render();
       }
+      break;
+    }
+    case 'dismiss-ext-hint': {
+      localStorage.setItem('clearat_ext_hint_done', '1');
+      render();
       break;
     }
     case 'open-donate': chrome.tabs.create({ url: DONATE_URL }); break;

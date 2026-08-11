@@ -106,6 +106,9 @@ class ViewController: PlatformViewController, WKNavigationDelegate, WKScriptMess
         if webView == nil {
             let config = WKWebViewConfiguration()
             config.allowsInlineMediaPlayback = true
+            // Lets clearat.app/app know it's inside the app shell (it shows a
+            // one-time "enable the Safari extension" reminder when it sees this)
+            config.applicationNameForUserAgent = "ClearATApp/1.0"
             webView = WKWebView(frame: view.bounds, configuration: config)
             webView.navigationDelegate = self
             webView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
