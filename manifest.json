@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Clear AT",
   "version": "0.1.0",
-  "description": "One badge for everything: Bluesky notifications across your accounts, plus RSS and YouTube. Triage at a glance, act at the source.",
+  "description": "One badge for everything: Bluesky notifications across your accounts, plus RSS and YouTube. Triage at a glance.",
   "permissions": ["storage", "alarms"],
   "host_permissions": ["https://*/*", "http://*/*"],
   "background": {
