@@ -7,7 +7,7 @@
 | Category | Primary: Social Networking · Secondary: Utilities |
 | Price | Free |
 | Privacy Policy URL | https://clearat.app/privacy |
-| Support URL | https://clearat.app |
+| Support URL | https://clearat.app/support/ |
 | Marketing URL | https://clearat.app |
 | Copyright | © 2026 Todd Lambert |
 | App Privacy | Data Not Collected |
@@ -46,7 +46,34 @@ bluesky,notifications,rss,youtube,badge,mentions,replies,feeds,social,triage,rea
 
 ## Review notes
 
-Safari web extension with companion app. To test without credentials: open the app and tap Settings → Add feed, and paste any public RSS/blog URL — items appear with no login. Bluesky accounts authenticate with user-supplied app passwords; the account flow mirrors the feed flow. On macOS the extension needs "Always Allow on Every Website" in Safari settings to poll.
+Safari web extension with companion app. A demo account is provided in the
+Sign-In Information section — the sign-in form is inside the extension
+(popup → gear → Add account): enter the handle as the username and the app
+password as the password. The account is pre-populated with notifications of
+every type Clear AT displays (replies, mentions, quotes, likes, reposts,
+follows).
+
+Feeds need no login: Settings → Add feed, paste any public RSS/blog URL.
+On macOS the extension needs "Always Allow on Every Website" in Safari
+settings to poll.
+
+## Demo account (App Review requires one — guideline 2.1(a))
+
+Apple must be able to sign in and see pre-populated content. One-time setup:
+
+1. Create a dedicated Bluesky account (e.g. `cleardemo.bsky.social`) at
+   bsky.app — don't hand Apple a personal account.
+2. From your main account, interact with it until every notification type
+   exists: follow it, like one of its posts, repost one, reply to one,
+   quote-post one, and mention it in a post. (It needs a post or two of its
+   own first.)
+3. On the demo account: Settings → Privacy & Security → App Passwords →
+   create one named `app-review`. Record it — it's shown once.
+4. App Store Connect → the app → App Review Information → Sign-In
+   Information: username = the handle, password = the app password.
+5. Don't "mark all seen" from the demo account afterwards, or the
+   pre-populated unread badge disappears. Top up with a fresh like/reply
+   before any resubmission.
 
 ## Age rating
 

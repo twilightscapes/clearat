@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support — Clear AT</title>
+  <meta name="description" content="Get help with Clear AT: setup guides, common questions, and a contact form that reaches the developer directly.">
+  <link rel="icon" href="../logo.png">
+  <style>
+    * { box-sizing: border-box; margin: 0; }
+    body {
+      background: #04202C;
+      color: #FBDFB5;
+      font: 16px/1.7 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 48px 24px;
+    }
+    main { max-width: 620px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+    h1 { font-size: 24px; }
+    h2 { font-size: 19px; margin-top: 24px; }
+    a { color: inherit; }
+    .card {
+      background: rgba(251, 223, 181, 0.07);
+      border: 1px solid rgba(251, 223, 181, 0.18);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+    .card h3 { font-size: 16px; margin-bottom: 6px; }
+    .card p { font-size: 14.5px; opacity: 0.9; }
+    .card p + p { margin-top: 8px; }
+
+    form { display: flex; flex-direction: column; gap: 12px; }
+    label { font-size: 14px; font-weight: 600; display: flex; flex-direction: column; gap: 5px; }
+    input, textarea {
+      font: inherit;
+      font-size: 15px;
+      color: #FBDFB5;
+      background: rgba(251, 223, 181, 0.08);
+      border: 1px solid rgba(251, 223, 181, 0.3);
+      border-radius: 10px;
+      padding: 10px 12px;
+      width: 100%;
+    }
+    input:focus, textarea:focus { outline: 2px solid rgba(251, 223, 181, 0.6); outline-offset: 1px; }
+    textarea { min-height: 130px; resize: vertical; }
+    button {
+      font: inherit;
+      font-weight: 600;
+      font-size: 15px;
+      align-self: flex-start;
+      padding: 11px 26px;
+      background: #FBDFB5;
+      color: #04202C;
+      border: 0;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover { opacity: 0.85; }
+    footer { margin-top: 24px; font-size: 13px; opacity: 0.6; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Clear AT support</h1>
+    <p>Stuck, confused, or found a bug? Send a message below and you'll get a
+      reply from the developer — usually within a day or two. The common
+      questions further down might get you unstuck right away.</p>
+
+    <h2>Ask a question</h2>
+    <div class="card">
+      <form name="support" method="POST" action="thanks/" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="support">
+        <p hidden aria-hidden="true"><label>Leave this field empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <label>Your email (so we can reply)
+          <input type="email" name="email" required autocomplete="email">
+        </label>
+        <label>What's going on?
+          <textarea name="message" required placeholder="Include your browser (Safari, Chrome, Firefox) and what you expected to happen."></textarea>
+        </label>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+
+    <h2>Common questions</h2>
+
+    <div class="card">
+      <h3>How do I add a Bluesky account?</h3>
+      <p>Open the Clear AT popup, hit the gear, and enter your handle plus an
+        <strong>app password</strong> — never your main password. Create one at
+        <a href="https://bsky.app/settings/app-passwords">bsky.app&nbsp;→ Settings&nbsp;→ App&nbsp;Passwords</a>;
+        it looks like <code>xxxx-xxxx-xxxx-xxxx</code>. You can add as many
+        accounts as you run.</p>
+    </div>
+
+    <div class="card">
+      <h3>Setting up in Safari (Mac, iPhone, iPad)</h3>
+      <p>After installing from the App Store, turn the extension on:
+        on&nbsp;Mac, Safari&nbsp;→ Settings&nbsp;→ Extensions&nbsp;→ Clear&nbsp;AT;
+        on iPhone/iPad, Settings&nbsp;→ Apps&nbsp;→ Safari&nbsp;→ Extensions.</p>
+      <p>Then grant it website access — on Mac choose
+        <strong>Always Allow on Every Website</strong>. Clear AT needs this to
+        reach your accounts' servers and your feeds in the background; it
+        talks only to servers you add and <a href="../privacy/">collects nothing</a>.</p>
+    </div>
+
+    <div class="card">
+      <h3>Setting up in Firefox</h3>
+      <p>Firefox treats site access as opt-in, so the popup shows a one-time
+        <strong>Grant site access</strong> button the first time you open it —
+        click it, then add your accounts and feeds.</p>
+    </div>
+
+    <div class="card">
+      <h3>The badge isn't updating</h3>
+      <p>Clear AT checks every 3 minutes, so give it a moment — or open the
+        popup, which refreshes immediately. If it never updates, the usual
+        cause is missing site access (see the Safari and Firefox notes above).
+        If an account shows an error, its app password may have been revoked —
+        create a fresh one and re-add the account.</p>
+    </div>
+
+    <div class="card">
+      <h3>How do I add RSS feeds or YouTube channels?</h3>
+      <p>Gear&nbsp;→ Subscriptions&nbsp;→ paste any blog or feed URL. For
+        YouTube, paste the channel's page URL — Clear AT resolves it to the
+        channel's upload feed for you. No login needed for either.</p>
+    </div>
+
+    <div class="card">
+      <h3>Does "Mark all seen" affect the official Bluesky app?</h3>
+      <p>Yes — it syncs with Bluesky itself, so the notification badge clears
+        in the official apps too. That's the point: seen here is seen
+        everywhere.</p>
+    </div>
+
+    <div class="card">
+      <h3>Where is my data stored?</h3>
+      <p>On your device, full stop. Clear AT has no server — your app
+        passwords stay in your browser and talk only to your own accounts'
+        servers. Details in the <a href="../privacy/">privacy policy</a>.</p>
+    </div>
+
+    <footer><a href="../">clearat.app</a> · <a href="../privacy/">Privacy</a> · A tool by Todd</footer>
+  </main>
+</body>
+</html>
