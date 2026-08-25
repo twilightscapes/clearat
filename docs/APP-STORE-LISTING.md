@@ -3,7 +3,7 @@
 | Field | Value |
 |---|---|
 | Name | Clear AT |
-| Subtitle | All your Bluesky @s, one badge |
+| Subtitle | All your @s in one badge |
 | Category | Primary: Social Networking · Secondary: Utilities |
 | Price | Free |
 | Privacy Policy URL | https://clearat.app/privacy |
@@ -56,6 +56,14 @@ follows).
 Feeds need no login: Settings → Add feed, paste any public RSS/blog URL.
 On macOS the extension needs "Always Allow on Every Website" in Safari
 settings to poll.
+
+## Trademark (guideline 4.1 — rejected once for this)
+
+"Bluesky" must not appear in the app **name or subtitle** — Apple rejected
+the iOS submission for exactly this. Factual interoperability wording in the
+description/promo text ("works with your Bluesky accounts", plus the
+not-affiliated line) is the accepted pattern, and `bluesky` may stay in the
+hidden keywords. Keep any future subtitle brand-free.
 
 ## Demo account (App Review requires one — guideline 2.1(a))
 
