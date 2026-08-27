@@ -65,6 +65,24 @@ description/promo text ("works with your Bluesky accounts", plus the
 not-affiliated line) is the accepted pattern, and `bluesky` may stay in the
 hidden keywords. Keep any future subtitle brand-free.
 
+## Spam (guideline 4.3(a) — rejected once for this)
+
+The iOS submission was flagged as "similar binary, metadata, and/or concept
+as apps submitted by other developers." Almost certainly a heuristic match:
+every `safari-web-extension-converter` app shares Apple's template
+scaffolding in the binary, and the metadata resembles other Bluesky apps'.
+
+Do NOT rewrite the app concept. Reply in the Resolution Center with the
+originality case: public source with dated history
+(github.com/twilightscapes/clearat, first commit 2026-08-09), the same code
+already approved and live on the Mac App Store (same app record, id
+6800145444), no purchased template, only app on the account, brand
+established at clearat.app + Chrome Web Store + Firefox Add-ons. Ask them to
+name the app it supposedly duplicates.
+
+If the reply is refused, escalate to the App Review Board:
+https://developer.apple.com/contact/app-store/?topic=appeal
+
 ## Demo account (App Review requires one — guideline 2.1(a))
 
 Apple must be able to sign in and see pre-populated content. One-time setup:
