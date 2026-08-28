@@ -72,16 +72,20 @@ as apps submitted by other developers." Almost certainly a heuristic match:
 every `safari-web-extension-converter` app shares Apple's template
 scaffolding in the binary, and the metadata resembles other Bluesky apps'.
 
-Do NOT rewrite the app concept. Reply in the Resolution Center with the
-originality case: public source with dated history
-(github.com/twilightscapes/clearat, first commit 2026-08-09), the same code
-already approved and live on the Mac App Store (same app record, id
-6800145444), no purchased template, only app on the account, brand
-established at clearat.app + Chrome Web Store + Firefox Add-ons. Ask them to
-name the app it supposedly duplicates.
+Status: the Resolution Center originality reply (public dated source,
+identical build live on the Mac side of this same app record, no template,
+only app on the account) came back with the same boilerplate. Mac and iOS
+are confirmed one app record, so the match is against other developers'
+apps — i.e. Apple's own converter scaffolding and/or the Bluesky metadata
+cluster.
 
-If the reply is refused, escalate to the App Review Board:
-https://developer.apple.com/contact/app-store/?topic=appeal
+Escalation path (2026-08-28): appeal to the App Review Board at
+https://developer.apple.com/contact/app-store/?topic=appeal — cite the
+approved-on-macOS contradiction first, the public commit history, and that
+the only shared binary content is Xcode's safari-web-extension-converter
+scaffolding. Ask them to name the allegedly duplicated app; request a phone
+call. Don't resubmit while the appeal is open, and don't rewrite the
+concept — the app is original.
 
 ## Demo account (App Review requires one — guideline 2.1(a))
 
